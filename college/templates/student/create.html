@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form action="" method="POST" novalidate>{% csrf_token %}
+
+    {{ form | crispy }}
+
+    <input type="submit" value="submit" class="btn btn-primary">
+</form>
+
+
+<script>
+
+
+    $(document).ready(function(){
+        $('#id_name').change(function(){
+            $.ajax({
+             url:'/college/ajax_example',
+             type:'GET',
+             data:{'username':$(this).val()},
+             success:function(response){
+                if(response == 'True')
+                    console.log('user found!');
+                else
+                    console.log("user not found!");
+             },
+             error:function(error){
+                console.log(error);
+             }
+            });
+        });
+    });
+
+</script>
+
+
+
+{% endblock %}

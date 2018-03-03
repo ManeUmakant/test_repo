@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Address</th>
+          <th>City</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+      <tr>
+        <td>{{i.username}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.address}}</td>
+          <td>{{i.city}}</td>
+          <td>
+              <span>
+                  <a href="/second/update/{{i.id}}">UPDATE</a>
+                  <a href="/second/view/{{i.id}}">VIEW</a>
+                  <a href="/second/delete/{{i.id}}">DELETE</a>
+              </span>
+
+          </td>
+      </tr>
+
+    {% endfor %}
+
+    </tbody>
+  </table>
+
+{% endblock %}

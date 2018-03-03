@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+          <th>Photo</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Address</th>
+          <th>City</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+      <tr>
+           <td>
+               <img src="/{{i.picture}}" style="border: 2px solid green; border-radius: 34px;" height="70" width="70" alt="couldn't load image">
+
+           </td>
+
+        <td>{{i.username}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.address}}</td>
+          <td>{{i.city}}</td>
+          <td>
+              <span>
+                  <a href="/college/update/{{i.id}}">UPDATE</a>
+                  <a href="/college/view/{{i.id}}">VIEW</a>
+                  <a href="/college/delete/{{i.id}}">DELETE</a>
+              </span>
+
+          </td>
+      </tr>
+
+    {% endfor %}
+
+    </tbody>
+  </table>
+
+<div class="container">
+<p class="comm btn btn-default">1</p>
+<p class="comm btn btn-default">2</p>
+<p class="comm btn btn-default">3</p>
+<p class="comm btn btn-default">4</p>
+<p class="comm btn btn-default">5</p>
+</div>
+<script>
+
+    $(document).ready(function(){
+
+        $('.comm').click(function(){
+
+            alert($(this).text());
+
+        });
+
+    });
+
+</script>
+{% endblock %}

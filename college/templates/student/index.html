@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>E-name</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.emp_id.email}}</td>
+          <td>
+              <span>
+                  <a href="/college/update_student/{{i.id}}">UPDATE</a>
+                  <a href="/college/view_student/{{i.id}}">VIEW</a>
+                  <a href="/college/delete_student/{{i.id}}">DELETE</a>
+              </span>
+
+          </td>
+      </tr>
+
+    {% endfor %}
+
+    </tbody>
+  </table>
+
+{% endblock %}
